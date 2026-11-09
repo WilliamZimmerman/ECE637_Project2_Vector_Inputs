@@ -1,0 +1,16 @@
+#
+# Edit Lock-Stake file. CAUTION: Please do not change.
+#
+# Information about current Edit Lock Owner.
+#
+LockStakeVersion               1.1
+LoginName                      w2zimmer
+HostName                       iccad10.uwaterloo.ca
+ProcessIdentifier              3835166
+ProcessCreationTime_UTC        1794256690
+ProcessCreationTime_Readable   Mon Nov  9 15:38:10 2026 EST
+AppIdentifier                  OA File System Design Manager
+OSType                         unix
+ReasonForPlacingEditLock       OpenAccess edit lock
+FilePathUsedToEditLock         /home/w2zimmer/ece637/Project2/vec_stim/symbol/symbol.oa.cdslck
+TimeEditLocked                 Mon Nov  9 16:36:03 2026 EST
