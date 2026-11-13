@@ -28,5 +28,9 @@ AIN: All 0s -> Vector A -> All 0s - > Vector B -> All 0s -> Vector C
 BIN: All 1s -> Vector A -> All 0s - > Vector B -> All 0s -> Vector C
 
 
-To buffer the inputs please set them up like so
-<img width="250" height="351" alt="Screenshot 2026-11-13 at 6 34 03 PM" src="https://github.com/user-attachments/assets/2cfcd174-22f4-4c4e-bceb-9fdd787b9dea" />
+To buffer the inputs please set them up like so. Please name the buffers for Ain and Bin something like BUFFA<15:0>
+<img width="661" height="534" alt="Screenshot 2026-11-13 at 6 42 25 PM" src="https://github.com/user-attachments/assets/38760b6a-f694-4f2a-a8e4-8cecb837bd6e" />
+
+## Issues
+
+If you have any problems please talk to me after class or send me a teams message.
