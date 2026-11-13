@@ -1,0 +1,77 @@
+// VerilogA for Project2, vec_stim_del, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module vec_seq(a, b, cin);
+  electrical [15:0] a, b;
+  electrical cin;
+
+  parameter real vhigh = 1.2;               // tie to vdd in the testbench
+  parameter real tper  = 1n from (0:inf);  // hold time per step
+  parameter real trf   = 100p from (0:inf); // rise and fall time
+
+  integer cnt, i, va, vb;
+  integer abit[0:15], bbit[0:15];
+
+  analog begin
+    @(initial_step) cnt = 0;
+    @(timer(tper, tper)) cnt = cnt + 1;
+
+    // 0: initial  A=0000, B=FFFF
+    // 1: Vector A FFFF + 0001   <- measure tadd here
+    // 2: zero     0000 + 0000
+    // 3: Vector B FFFF + FFFF
+    // 4: zero     0000 + 0000
+    // 5+: Vector C AAAA + AAAA (holds)
+    if (cnt == 0)      begin va = 0;     vb = 65535; end
+    else if (cnt == 1) begin va = 65535; vb = 1;     end
+    else if (cnt == 2) begin va = 0;     vb = 0;     end
+    else if (cnt == 3) begin va = 65535; vb = 65535; end
+    else if (cnt == 4) begin va = 0;     vb = 0;     end
+    else               begin va = 43690; vb = 43690; end
+
+    for (i = 0; i < 16; i = i + 1) begin
+      abit[i] = (va >> i) & 1;
+      bbit[i] = (vb >> i) & 1;
+    end
+
+    V(a[0])  <+ transition(abit[0]  ? vhigh : 0.0, 0, trf);
+    V(a[1])  <+ transition(abit[1]  ? vhigh : 0.0, 0, trf);
+    V(a[2])  <+ transition(abit[2]  ? vhigh : 0.0, 0, trf);
+    V(a[3])  <+ transition(abit[3]  ? vhigh : 0.0, 0, trf);
+    V(a[4])  <+ transition(abit[4]  ? vhigh : 0.0, 0, trf);
+    V(a[5])  <+ transition(abit[5]  ? vhigh : 0.0, 0, trf);
+    V(a[6])  <+ transition(abit[6]  ? vhigh : 0.0, 0, trf);
+    V(a[7])  <+ transition(abit[7]  ? vhigh : 0.0, 0, trf);
+    V(a[8])  <+ transition(abit[8]  ? vhigh : 0.0, 0, trf);
+    V(a[9])  <+ transition(abit[9]  ? vhigh : 0.0, 0, trf);
+    V(a[10]) <+ transition(abit[10] ? vhigh : 0.0, 0, trf);
+    V(a[11]) <+ transition(abit[11] ? vhigh : 0.0, 0, trf);
+    V(a[12]) <+ transition(abit[12] ? vhigh : 0.0, 0, trf);
+    V(a[13]) <+ transition(abit[13] ? vhigh : 0.0, 0, trf);
+    V(a[14]) <+ transition(abit[14] ? vhigh : 0.0, 0, trf);
+    V(a[15]) <+ transition(abit[15] ? vhigh : 0.0, 0, trf);
+
+    V(b[0])  <+ transition(bbit[0]  ? vhigh : 0.0, 0, trf);
+    V(b[1])  <+ transition(bbit[1]  ? vhigh : 0.0, 0, trf);
+    V(b[2])  <+ transition(bbit[2]  ? vhigh : 0.0, 0, trf);
+    V(b[3])  <+ transition(bbit[3]  ? vhigh : 0.0, 0, trf);
+    V(b[4])  <+ transition(bbit[4]  ? vhigh : 0.0, 0, trf);
+    V(b[5])  <+ transition(bbit[5]  ? vhigh : 0.0, 0, trf);
+    V(b[6])  <+ transition(bbit[6]  ? vhigh : 0.0, 0, trf);
+    V(b[7])  <+ transition(bbit[7]  ? vhigh : 0.0, 0, trf);
+    V(b[8])  <+ transition(bbit[8]  ? vhigh : 0.0, 0, trf);
+    V(b[9])  <+ transition(bbit[9]  ? vhigh : 0.0, 0, trf);
+    V(b[10]) <+ transition(bbit[10] ? vhigh : 0.0, 0, trf);
+    V(b[11]) <+ transition(bbit[11] ? vhigh : 0.0, 0, trf);
+    V(b[12]) <+ transition(bbit[12] ? vhigh : 0.0, 0, trf);
+    V(b[13]) <+ transition(bbit[13] ? vhigh : 0.0, 0, trf);
+    V(b[14]) <+ transition(bbit[14] ? vhigh : 0.0, 0, trf);
+    V(b[15]) <+ transition(bbit[15] ? vhigh : 0.0, 0, trf);
+
+    V(cin) <+ transition(0.0, 0, trf);
+
+    $bound_step(trf);
+  end
+endmodule
