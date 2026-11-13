@@ -14,7 +14,7 @@ testing the correctness of the adder.
 
 <img width="1062" height="567" alt="Screenshot 2026-11-13 at 4 32 48 PM" src="https://github.com/user-attachments/assets/9d16c66a-aa26-4890-b0ba-592a8cd6fd08" />
 
-Should you want to test a under 1ghz conditions, use the vec_stim_GHZ symbol. 
+Should you want to test a under 1ghz conditions, use the vec_stim_GHZ symbol. If you want to test timing please use the vec_stim_del symbol.
 
 ## Checking
 To check your values, paste the code in the CIW_CHECK files into the ciw window (The window that you launch library manager from when you first start cadence)
