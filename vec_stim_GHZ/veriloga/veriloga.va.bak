@@ -1,0 +1,9 @@
+// VerilogA for Project2, vec_stim_GHZ, veriloga
+
+`include "constants.vams"
+`include "disciplines.vams"
+
+module vec_stim_GHZ;
+
+
+endmodule
