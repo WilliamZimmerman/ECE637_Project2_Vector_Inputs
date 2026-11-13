@@ -1,7 +1,6 @@
 ## Importing
 To add this symbol to your project simply add the vec_stim folder into your project directory. 
-For example:
-If your project is ~/ECE637/Project2 
+
 All you need to do is cp -r /Path/to/git/directory Path/to/project/directory 
 
 ## Instantiation 
