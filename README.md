@@ -21,5 +21,11 @@ Should you want to test a under 1ghz conditions, use the vec_stim_GHZ symbol.
 To check your values, paste the code in the CIW_CHECK files into the ciw window (The window that you launch library manager from when you first start cadence)
 
 
-## IMPORTANT NOTE ON TIMING!
-AT this moment, you can't measure tadd for all 3 vectors using this because certain transitions for AIN don't happen. 
+## TIMING 
+To check timing please use the vec_stim_del symbol. This one works by inputting the following in 1ns intervals. This ensures that there are transitions in the inputs and outputs each time a new vector is inputted.
+AIN: All 0s -> Vector A -> All 0s - > Vector B -> All 0s -> Vector C
+BIN: All 1s -> Vector A -> All 0s - > Vector B -> All 0s -> Vector
+
+
+To buffer the inputs please set them up like so
+<img width="250" height="351" alt="Screenshot 2026-11-13 at 6 34 03 PM" src="https://github.com/user-attachments/assets/2cfcd174-22f4-4c4e-bceb-9fdd787b9dea" />
