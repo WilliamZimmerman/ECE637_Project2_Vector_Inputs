@@ -24,7 +24,8 @@ To check your values, paste the code in the CIW_CHECK files into the ciw window 
 To check timing please use the vec_stim_del symbol. This one works by inputting the following in 1ns intervals. This ensures that there are transitions in the inputs and outputs each time a new vector is inputted.
 
 AIN: All 0s -> Vector A -> All 0s - > Vector B -> All 0s -> Vector C
-BIN: All 1s -> Vector A -> All 0s - > Vector B -> All 0s -> Vector
+
+BIN: All 1s -> Vector A -> All 0s - > Vector B -> All 0s -> Vector C
 
 
 To buffer the inputs please set them up like so
